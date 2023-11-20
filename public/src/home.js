@@ -25,10 +25,10 @@ function getMostCommonGenres(books) {
   return temp.sort((genreA, genreB) => genreB.count - genreA.count).slice(0, 5);
 }
 
-function getMostPopularBooks(books, count=5) {
+function getMostPopularBooks(books) {
   const borrows = books.map((book) => ({name:book.title, count: book.borrows.length}));
   borrows.sort((bookA, bookB) => bookB.count - bookA.count);
-  return borrows.slice(0, count);
+  return borrows.slice(0, 5);
 }
 
 
