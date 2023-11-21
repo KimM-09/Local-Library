@@ -10,10 +10,17 @@ return accounts.sort((lastA, lastB ) =>
 function getTotalNumberOfBorrows(account, books) {
   const accId = account.id;
   let total = 0;
-  books.forEach((book) => book.borrows.forEach((borrow) => 
-  accId === borrow.id && total++));
-  return total;
- }
+  for ( let i = 0; i < books.length; i++) {
+    const book = books[i];
+  for ( let j = 0; j < book.borrows.length; j++) {
+    const borrow = book.borrows[j];
+    if (accId === borrow.id) {
+      total++
+    }
+  }  
+    }
+  return total
+  } 
 
 function getBooksPossessedByAccount(account, books, authors) {
   let result = [];
